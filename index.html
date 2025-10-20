@@ -1,0 +1,84 @@
+<html>
+ <head>  
+ </head> 
+ <body> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1"> 
+  <title>ASAP -- Always Say A Prayer</title> 
+  <!-- Stylesheet --> 
+  <link rel="stylesheet" href="style.css"> 
+  <!-- Firebase (only if you plan to store orders) --> 
+  <!-- Add your Firebase config in script.js FIREBASE_CONFIG variable --> 
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script> 
+  <!-- Paystack inline script (for checkout popup) --> 
+  <script src="https://js.paystack.co/v1/inline.js"></script> 
+  <header class="site-header"> 
+   <div class="brand"> 
+    <h1>ASAP</h1> 
+    <small>Always Say A Prayer</small> 
+   </div> 
+   <nav class="nav"> 
+    <a href="#shop">Shop</a> 
+    <a href="#about">About</a> 
+    <a href="#cart">Cart 🛒 (<span id="cart-count">0</span>)</a> 
+   </nav> 
+  </header> 
+  <main> 
+   <section class="hero"> 
+    <div class="hero-inner"> 
+     <h2>Timeless prayers.</h2> 
+     <p>Shop the ASAP collection.</p> 
+     <button class="cta" onclick="scrollToShop()">Shop Now</button> 
+    </div> 
+   </section> 
+   <!-- SHOP --> 
+   <section id="shop" class="shop"> 
+    <h2>Shop Our Collection</h2> 
+    <div id="products" class="products"> 
+     <!-- Product cards will be injected by script.js --> 
+    </div> 
+   </section> 
+   <!-- CART --> 
+   <section id="cart" class="cart"> 
+    <h2>Your Cart</h2> 
+    <!-- Customer / checkout form --> 
+    <form id="checkout-form" class="checkout-form" onsubmit="startCheckout(event)"> 
+     <div class="field"> 
+      <label for="name">Full name</label> 
+      <input id="name" name="name" required> 
+     </div> 
+     <div class="field"> 
+      <label for="email">Email</label> 
+      <input id="email" name="email" type="email" required> 
+     </div> 
+     <div class="field"> 
+      <label for="phone">Phone</label> 
+      <input id="phone" name="phone" required> 
+     </div> 
+     <div class="field"> 
+      <label for="address">Delivery Address</label> 
+      <textarea id="address" name="address" rows="2" required></textarea> 
+     </div> 
+     <div class="cart-items-wrapper"> 
+      <ul id="cart-items" class="cart-items"></ul> 
+     </div> 
+     <p id="cart-total" class="cart-total">Total: ₦0</p> 
+     <div class="buttons-row"> 
+      <button type="button" onclick="clearCart()" class="btn ghost">Clear Cart</button> 
+      <button type="submit" class="btn primary">Pay Now</button> 
+     </div> 
+    </form> 
+   </section> 
+   <!-- ABOUT --> 
+   <section id="about" class="about"> 
+    <h3>About ASAP</h3> 
+    <p>ASAP is a clothing brand inspired by faith &amp; hope. Every piece is designed to be versatile and timeless, we move different cause WE ARE.</p> 
+   </section> 
+  </main> 
+  <footer class="site-footer"> 
+   <p>© <span id="year"></span> ASAP • Always Say A Prayer</p> 
+  </footer> 
+  <script src="script.js"></script>   
+ </body>
+</html>
